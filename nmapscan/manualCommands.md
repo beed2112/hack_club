@@ -7,7 +7,16 @@ Target: **IP = 10.76.21.12**, **HOST tag = web01**.
 
 ---
 
-## 0) Set a single timestamp for all artifacts
+## 0) Ensure the XSL is present (auto-download if missing) - One time task
+
+```bash
+[ -s "$HOME/nmap-bootstrap.xsl" ] || wget -q -O "$HOME/nmap-bootstrap.xsl" "https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl" || curl -sSL -o "$HOME/nmap-bootstrap.xsl" "https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl"
+```
+
+
+---
+
+## 1) Set a single timestamp for all artifacts
 
 > Run this once at the start of your session.
 
@@ -16,14 +25,6 @@ export TS="$(date +%Y%m%d-%H%M%S)"; echo "TS=$TS"
 ```
 
 *(You can re-run this later if you want a new batch with a fresh timestamp.)*
-
----
-
-## 1) Ensure the XSL is present (auto-download if missing)
-
-```bash
-[ -s "$HOME/nmap-bootstrap.xsl" ] || wget -q -O "$HOME/nmap-bootstrap.xsl" "https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl" || curl -sSL -o "$HOME/nmap-bootstrap.xsl" "https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl"
-```
 
 ---
 

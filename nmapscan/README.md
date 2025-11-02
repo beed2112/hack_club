@@ -56,7 +56,7 @@ INCLUDE_BRUTE=1 nmapscan 10.76.21.12 web01 all
 
 ## Output files
 
-Filenames are normalized as:
+Filenames are in this format:
 
 ```
 <proto>.<stage>-<tag>.<YYYYMMDD-HHMMSS>.<ext>
@@ -110,3 +110,16 @@ DRY_RUN=0           # set to 1 to print commands but not execute
 - `brute` scripts run **only** when explicitly requested (or when `INCLUDE_BRUTE=1`).
 - UDP heavy phase runs only if open UDP ports are found in the discovery phase.
 - Output directories are the current working directory.
+
+
+## Nmap and sudo
+
+Consider a sudoers rule to allow passwordless `sudo namp`
+
+Put this inside (replace YOURUSER with your login; keep the full path to nmap.
+
+```
+# Allow YOURUSER to run nmap as root without a password
+YOURUSER ALL=(root) NOPASSWD: /usr/bin/nmap
+```
+
