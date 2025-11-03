@@ -32,7 +32,7 @@ nmapscan <IP> [hostname] [mode]
   - `all`         : TCP + UDP
   - `all-brute`   : TCP + UDP with brute scripts
 
-### Examples (using the canonical IP `10.76.21.12`)
+### Examples 
 
 ```bash
 # TCP only, no brute
@@ -52,6 +52,10 @@ nmapscan 10.76.21.12 web01 all-brute
 
 # Force brute with an env var (regardless of mode)
 INCLUDE_BRUTE=1 nmapscan 10.76.21.12 web01 all
+
+# Dry run - preview commands for run 
+DRY_RUN=1 nmapscan 10.76.21.12 web01 all
+
 ```
 
 ## Output files
