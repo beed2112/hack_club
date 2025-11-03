@@ -1,7 +1,7 @@
-# Manual Steps (Single Fixed Timestamp via `export TS=...`)
+# Enumeration Manual Steps 
 
-These commands reproduce what `nmapscan` does, while **avoiding timestamp drift** by setting a single timestamp once.
-We only use **one environment variable**: `TS`, exported with a one-liner so every later command reuses it.
+These are the steps followed for enumerating a host. 
+
 
 Target: **IP = 10.76.21.12**, **HOST tag = web01**.
 
