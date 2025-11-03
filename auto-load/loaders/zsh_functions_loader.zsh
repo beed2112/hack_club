@@ -1,6 +1,6 @@
 # ~/.config/shell/zsh_functions_loader.zsh
 # Autoload all user functions from ~/.functions/*.sh (zsh)
-# Idempotent per-session via guard variable.
+
 
 # Guard
 if [[ -n "${__USER_FUNCTIONS_LOADED_ZSH:-}" ]]; then

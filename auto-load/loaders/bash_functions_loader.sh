@@ -1,6 +1,6 @@
 # ~/.config/shell/bash_functions_loader.sh
 # Autoload all user functions from ~/.functions/*.sh (bash)
-# Idempotent per-session via guard variable.
+
 
 # Guard against re-sourcing
 if [ -n "${__USER_FUNCTIONS_LOADED_BASH:-}" ]; then

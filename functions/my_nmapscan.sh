@@ -1,13 +1,13 @@
-# nmapscan.sh — source this file from your shell rc to load the function.
-nmapscan() {
-  # Usage: nmapscan <IP> [hostname] [mode]
+# my_nmapscan.sh — source this file from your shell rc to load the function.
+my_nmapscan() {
+  # Usage: my_nmapscan <IP> [hostname] [mode]
   # mode: (optional) "brute" (add brute NSE), "udp" (UDP only), "all" (TCP+UDP), "all-brute" (TCP+UDP with brute)
   # Examples:
-  #   nmapscan 10.76.21.12
-  #   nmapscan 10.76.21.12 web01
-  #   nmapscan 10.76.21.12 web01 all
-  #   nmapscan 10.76.21.12 web01 all-brute
-  #   DRY_RUN=1 nmapscan 10.76.21.12 web01 all   # dry-run
+  #   my_nmapscan 10.76.21.12
+  #   my_nmapscan 10.76.21.12 web01
+  #   my_nmapscan 10.76.21.12 web01 all
+  #   my_nmapscan 10.76.21.12 web01 all-brute
+  #   DRY_RUN=1 my_nmapscan 10.76.21.12 web01 all   # dry-run
 
   local ip="${1:-}" host="${2:-}" mode="${3:-}"
   if [ -z "$ip" ]; then

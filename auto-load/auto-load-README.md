@@ -71,9 +71,7 @@ mkdir -p ~/.functions
    - bash: `declare -F | awk '{print $3}' | sort`
    - zsh: `print -l ${(ok)functions} | sort`
 
-## Example file to copy/edit
 
-`examples/add_host_del_host.sh` contains `add_host` and `del_host` that edit `/etc/hosts` using `sudo tee`. They’re commented and ready to use.
 
 ## Uninstall
 
@@ -86,6 +84,3 @@ mkdir -p ~/.functions
 - **Permission prompt**: some example functions use `sudo` (e.g., editing `/etc/hosts`).
 - **Zsh errors about globbing**: the loader sets `null_glob`/`nonomatch` locally to avoid errors on empty directories.
 
----
-
-**Tip**: Keep function files small and focused (one or a few functions per file). Name them by role, e.g., `nmapscan.sh`, `git_helpers.sh`, `docker_shortcuts.sh`.
