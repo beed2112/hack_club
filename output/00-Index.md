@@ -29,27 +29,12 @@ tags: [enum, htb, {{platform|lower}}, dc]
 ## 🔹 Box Summary
 
 ```dataviewjs
-dv.paragraph("Current folder: " + dv.current().file.folder);
+
 ```
 
 ---
 
 ```dataviewjs
-(() => {
-  const folder = dv.current().file.folder;
-
-  const files = app.vault.getFiles()
-    .filter(f => f.path.startsWith(folder + "/") && f.extension === "md" && f.name !== "00-Index.md")
-    .sort((a, b) => a.path.localeCompare(b.path));
-
-  dv.table(
-    ["File", "Path"],
-    files.map(f => [
-      dv.fileLink(f.path),
-      f.path
-    ])
-  );
-})();
 
 ```
 
@@ -66,46 +51,19 @@ dv.paragraph("Current folder: " + dv.current().file.folder);
 
 ## 🔹 Vulnerabilities (if found)
 ```dataview
-table file.link as "Findings"
-from ""
-where file.name = "PROCESSED-nmap-forest.md"
+
 ```
 
 ## 🔹 Recon Files
 ```dataview
-table file.link as "Recon File"
-from "scans"
-where !contains(file.name, ".xml") and !contains(file.name, "port-") and file.name != "00-Index"
-sort file.name asc
+
 ```
 
 ## 🔹 Port-Specific Enum Scripts
 ```dataview
-table file.link as "Script"
-from "scans"
-where endswith(file.name, "run-enum.sh")
-sort file.name asc
 ```
 
 ## 🔹 JSON Snapshot
 ```dataviewjs
-(() => {
-  const folder = dv.current().file.folder;
 
-  const files = app.vault.getFiles()
-    .filter(f =>
-      f.path.startsWith(folder + "/") &&
-      f.extension === "json" &&
-      f.name.startsWith("PROCESSED-nmap-")
-    )
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  dv.table(
-    ["Host JSON", "Created"],
-    files.map(f => [
-      dv.fileLink(f.path),
-      new Date(f.stat.ctime).toLocaleString()
-    ])
-  );
-})();
 ```
