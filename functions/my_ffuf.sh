@@ -1,6 +1,6 @@
 # ffuf.sh — source this file to load the function
 # Usage:
-#   myffuf <target> [tag] [mode: dir|vhost|dns] [extra ffuf args...]
+#   my_ffuf <target> [tag] [mode: dir|vhost|dns] [extra ffuf args...]
 #
 # Modes:
 #   dir   - directory/content discovery. If target doesn't contain FUZZ, we append /FUZZ
@@ -8,20 +8,20 @@
 #   dns   - subdomain HTTP check (HTTP-based, not raw DNS): http://FUZZ.<domain>/
 #
 # Examples:
-#   myffuf http://10.10.10.10/ web01 dir
-#   myffuf http://10.10.10.10 vhost                # will prompt for domain via env FF_VHOST_DOMAIN or infer from tag
-#   myffuf example.htb dns
-#   DRY_RUN=1 myffuf http://target/ dir -e php,txt
+#   my_ffuf http://10.10.10.10/ web01 dir
+#   my_ffuf http://10.10.10.10 vhost                # will prompt for domain via env FF_VHOST_DOMAIN or infer from tag
+#   my_ffuf example.htb dns
+#   DRY_RUN=1 my_ffuf http://target/ dir -e php,txt
 #
 # Notes:
-# - myffuf focuses on HTTP fuzzing. For raw DNS brute-force (no HTTP), use gobuster dns, puredns, or massdns.
-# - myffuf defaults to filtering 404 via -fc 404. If you set -mc (allowlist) yourself or via FF_MATCH_CODES,
+# - my_ffuf focuses on HTTP fuzzing. For raw DNS brute-force (no HTTP), use gobuster dns, puredns, or massdns.
+# - my_ffuf defaults to filtering 404 via -fc 404. If you set -mc (allowlist) yourself or via FF_MATCH_CODES,
 #   we do NOT add the default -fc to avoid conflicting filters.
 
-myffuf() {
+my_ffuf() {
   local target="${1:-}" a2="${2:-}" a3="${3:-}"; shift $(( $#>=3 ? 3 : ($#>=2 ? 2 : ($#>=1 ? 1 : 0)) ))
   if [ -z "$target" ]; then
-    echo "Usage: myffuf <url|domain|ip> [tag] [mode: dir|vhost|dns] [extra ffuf args]" >&2
+    echo "Usage: my_ffuf <url|domain|ip> [tag] [mode: dir|vhost|dns] [extra ffuf args]" >&2
     return 2
   fi
 

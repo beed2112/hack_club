@@ -1,23 +1,23 @@
 # gobust.sh — source this file to load the function
 # Usage:
-#   mygobust <target> [tag] [mode: dir|vhost|dns] [extra gobuster args...]
+#   my_gobust <target> [tag] [mode: dir|vhost|dns] [extra gobuster args...]
 # Modes:
 #   dir   - directory/content discovery (URL required, e.g. http://10.10.10.10/)
 #   vhost - virtual host fuzzing (base URL to IP or site, e.g. http://10.10.10.10)
 #   dns   - subdomain brute force (domain required, e.g. example.htb)
 #
 # Examples:
-#   mygobust http://10.10.10.10 web01 dir
-#   mygobust http://10.10.10.10 vhost
-#   mygobust example.htb dns
-#   DRY_RUN=1 mygobust http://10.10.10.10 web01 dir -x php,txt
+#   my_gobust http://10.10.10.10 web01 dir
+#   my_gobust http://10.10.10.10 vhost
+#   my_gobust example.htb dns
+#   DRY_RUN=1 my_gobust http://10.10.10.10 web01 dir -x php,txt
 
-mygobust() {
-  # Usage: mygobust <target> [tag] [mode: dir|vhost|dns] [extra gobuster args...]
+my_gobust() {
+  # Usage: my_gobust <target> [tag] [mode: dir|vhost|dns] [extra gobuster args...]
   local target="${1:-}" a2="${2:-}" a3="${3:-}"; shift $(( $#>=3 ? 3 : ($#>=2 ? 2 : ($#>=1 ? 1 : 0)) ))
 
   if [ -z "$target" ]; then
-    echo "Usage: mygobust <url|domain|ip> [tag] [mode: dir|vhost|dns] [extra gobuster args]" >&2
+    echo "Usage: my_gobust <url|domain|ip> [tag] [mode: dir|vhost|dns] [extra gobuster args]" >&2
     return 2
   fi
 
