@@ -1,4 +1,4 @@
-# ffuf.sh — source this file to load the function
+# my_ffuf.sh — source this file to load the function
 # Usage:
 #   my_ffuf <target> [tag] [mode: dir|vhost|dns] [extra ffuf args...]
 #

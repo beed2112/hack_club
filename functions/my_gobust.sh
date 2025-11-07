@@ -1,4 +1,4 @@
-# gobust.sh — source this file to load the function
+# my_gobust.sh — source this file to load the function
 # Usage:
 #   my_gobust <target> [tag] [mode: dir|vhost|dns] [extra gobuster args...]
 # Modes:

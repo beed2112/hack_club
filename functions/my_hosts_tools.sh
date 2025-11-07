@@ -1,4 +1,4 @@
-# hosts_tools.sh — my_add_host / my_del_host helpers for /etc/hosts
+# my_hosts_tools.sh — my_add_host / my_del_host helpers for /etc/hosts
 
 # my_add_host: append (or replace) an /etc/hosts entry
 # Usage:
